@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://peak.joaqu1m.com/sitemap.xml
+Sitemap: https://peakdailymap.com/sitemap.xml
