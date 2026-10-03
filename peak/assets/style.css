@@ -1,0 +1,478 @@
+/* PEAK Daily Map — documento sobre papel de parede; escuro por padrao */
+:root {
+  --paper: #1c1e22;
+  --wall: #101318;
+  --wall-pattern: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'><g fill='%239d86ea' fill-opacity='0.07'><g transform='translate%288.8 13.2%29 rotate%28-13 20.8 28.0%29'><path d='M1.8 0.0L10.2 1.2L15.1 4.8L22.9 4.8L25.9 6.0L27.1 5.4L26.5 3.6L27.1 2.4L30.1 2.4L33.7 4.8L37.9 5.4L39.1 6.6L38.5 9.0L35.5 10.8L40.3 16.9L40.9 24.1L36.7 31.9L39.1 36.7L39.7 44.0L41.5 47.0L39.1 48.2L37.9 50.6L36.7 51.2L34.3 50.0L34.9 47.6L34.3 46.4L31.3 48.8L29.5 48.2L29.5 45.8L31.9 44.0L35.5 37.9L34.3 35.5L32.5 34.3L28.9 36.7L25.3 37.3L16.3 47.0L15.7 48.8L16.3 54.8L15.1 56.0L12.6 56.0L10.2 53.6L9.6 52.4L10.2 46.4L12.0 43.4L15.1 42.2L17.5 39.7L19.9 32.5L15.7 30.1L10.2 35.5L9.6 37.3L10.8 40.3L10.2 44.0L7.2 46.4L3.6 45.8L3.0 43.4L6.0 40.3L7.2 32.5L9.6 27.1L4.8 22.9L3.6 20.5L3.0 14.5L4.2 13.2L4.2 10.8L9.6 6.6L7.8 6.0L5.4 7.2L4.2 6.0L2.4 6.0L0.0 2.4L1.2 0.6Z'/></g><g transform='translate%28118.8 121.0%29 rotate%2815 20.8 28.0%29'><path d='M1.8 0.0L10.2 1.2L15.1 4.8L22.9 4.8L25.9 6.0L27.1 5.4L26.5 3.6L27.1 2.4L30.1 2.4L33.7 4.8L37.9 5.4L39.1 6.6L38.5 9.0L35.5 10.8L40.3 16.9L40.9 24.1L36.7 31.9L39.1 36.7L39.7 44.0L41.5 47.0L39.1 48.2L37.9 50.6L36.7 51.2L34.3 50.0L34.9 47.6L34.3 46.4L31.3 48.8L29.5 48.2L29.5 45.8L31.9 44.0L35.5 37.9L34.3 35.5L32.5 34.3L28.9 36.7L25.3 37.3L16.3 47.0L15.7 48.8L16.3 54.8L15.1 56.0L12.6 56.0L10.2 53.6L9.6 52.4L10.2 46.4L12.0 43.4L15.1 42.2L17.5 39.7L19.9 32.5L15.7 30.1L10.2 35.5L9.6 37.3L10.8 40.3L10.2 44.0L7.2 46.4L3.6 45.8L3.0 43.4L6.0 40.3L7.2 32.5L9.6 27.1L4.8 22.9L3.6 20.5L3.0 14.5L4.2 13.2L4.2 10.8L9.6 6.6L7.8 6.0L5.4 7.2L4.2 6.0L2.4 6.0L0.0 2.4L1.2 0.6Z'/></g></g></svg>");
+  --ink: #e8eaed;
+  --ink-2: #b4b8bf;
+  --ink-3: #8b9097;
+  --line: #3a3f46;
+  --line-soft: #2a2e34;
+  --link: #8ab4f8;
+  --accent: #e0b34c;
+  --chip-bg: #24272c;
+  --chip-active: #35301f;
+  --shore: #c9964f;
+  --tropics: #2e8b57;
+  --roots: #a0522d;
+  --alpine: #7d9cb8;
+  --mesa: #bf4f36;
+  --gloom: #7d5fc0;
+  --citadel: #c9a227;
+  --caldera: #b23a24;
+  /* roxo dessaturado (era #8b3fd6): quase igual ao roxo de raridade "epica"
+     em .rar-epic (#8f4fd1) — a mesma cor pra duas coisas sem relacao e
+     exatamente a associacao com raridade de skin que queremos evitar aqui. */
+  --variant: #5b5a72;
+  --radius: 8px;
+}
+/* O tema ESCURO e o padrao (decisao do Joca 30/08, depois do teste no
+   celular). O claro entra so por escolha explicita no toggle, que fica salva em
+   localStorage — por isso nao ha media query de prefers-color-scheme aqui: a
+   escolha do leitor tem de valer mais que a do sistema. */
+:root[data-theme="light"] {
+  --paper: #ffffff;
+  --wall: #35506b;
+  --wall-pattern: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'><g fill='%23ffffff' fill-opacity='0.06'><g transform='translate%288.8 13.2%29 rotate%28-13 20.8 28.0%29'><path d='M1.8 0.0L10.2 1.2L15.1 4.8L22.9 4.8L25.9 6.0L27.1 5.4L26.5 3.6L27.1 2.4L30.1 2.4L33.7 4.8L37.9 5.4L39.1 6.6L38.5 9.0L35.5 10.8L40.3 16.9L40.9 24.1L36.7 31.9L39.1 36.7L39.7 44.0L41.5 47.0L39.1 48.2L37.9 50.6L36.7 51.2L34.3 50.0L34.9 47.6L34.3 46.4L31.3 48.8L29.5 48.2L29.5 45.8L31.9 44.0L35.5 37.9L34.3 35.5L32.5 34.3L28.9 36.7L25.3 37.3L16.3 47.0L15.7 48.8L16.3 54.8L15.1 56.0L12.6 56.0L10.2 53.6L9.6 52.4L10.2 46.4L12.0 43.4L15.1 42.2L17.5 39.7L19.9 32.5L15.7 30.1L10.2 35.5L9.6 37.3L10.8 40.3L10.2 44.0L7.2 46.4L3.6 45.8L3.0 43.4L6.0 40.3L7.2 32.5L9.6 27.1L4.8 22.9L3.6 20.5L3.0 14.5L4.2 13.2L4.2 10.8L9.6 6.6L7.8 6.0L5.4 7.2L4.2 6.0L2.4 6.0L0.0 2.4L1.2 0.6Z'/></g><g transform='translate%28118.8 121.0%29 rotate%2815 20.8 28.0%29'><path d='M1.8 0.0L10.2 1.2L15.1 4.8L22.9 4.8L25.9 6.0L27.1 5.4L26.5 3.6L27.1 2.4L30.1 2.4L33.7 4.8L37.9 5.4L39.1 6.6L38.5 9.0L35.5 10.8L40.3 16.9L40.9 24.1L36.7 31.9L39.1 36.7L39.7 44.0L41.5 47.0L39.1 48.2L37.9 50.6L36.7 51.2L34.3 50.0L34.9 47.6L34.3 46.4L31.3 48.8L29.5 48.2L29.5 45.8L31.9 44.0L35.5 37.9L34.3 35.5L32.5 34.3L28.9 36.7L25.3 37.3L16.3 47.0L15.7 48.8L16.3 54.8L15.1 56.0L12.6 56.0L10.2 53.6L9.6 52.4L10.2 46.4L12.0 43.4L15.1 42.2L17.5 39.7L19.9 32.5L15.7 30.1L10.2 35.5L9.6 37.3L10.8 40.3L10.2 44.0L7.2 46.4L3.6 45.8L3.0 43.4L6.0 40.3L7.2 32.5L9.6 27.1L4.8 22.9L3.6 20.5L3.0 14.5L4.2 13.2L4.2 10.8L9.6 6.6L7.8 6.0L5.4 7.2L4.2 6.0L2.4 6.0L0.0 2.4L1.2 0.6Z'/></g></g></svg>");            /* papel de parede placeholder (trocar por arte) */
+  --ink: #202122;
+  --ink-2: #54595d;
+  --ink-3: #72777d;
+  --line: #d5d9de;
+  --line-soft: #eaecf0;
+  --link: #0645ad;
+  /* âmbar queimado: o dourado #b8860b puxava para mostarda no fundo branco e
+     não tinha contraste suficiente com texto branco nos botões ativos */
+  --accent: #b4530a;
+  --chip-bg: #f8f9fa;
+  --chip-active: #fdf0e4;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background-color: var(--wall);
+  background-image: var(--wall-pattern);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.55;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1, h2, h3 { line-height: 1.25; margin: 0 0 .5em; font-weight: 650; }
+
+.document {
+  max-width: 1180px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--paper);
+  padding: 28px 36px 40px;
+}
+@media (max-width: 760px) { .document { padding: 16px; } }
+
+/* ---------- cabecalho no celular ----------
+   Numa linha so, o logo e a navegacao disputam a mesma largura: o logo era
+   espremido ate quebrar "PEAK Daily Map" em varias linhas, e os botoes ficavam
+   colados. No celular eles passam a ocupar linhas proprias — o logo inteiro em
+   cima, a navegacao embaixo, com espaco para respirar. */
+@media (max-width: 620px) {
+  .site-header {
+    position: relative;              /* ancora do botao de tema */
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+  }
+  /* o nome nao pode quebrar: e a identidade do site */
+  .site-header .logo { font-size: 21px; white-space: nowrap; }
+  /* o tema sobe para a linha do logo, onde ha espaco sobrando a direita. Sao
+     dois toques raros num botao pequeno; tirar da navegacao devolve a largura
+     para os itens que o leitor usa toda hora. */
+  .header-nav #theme-toggle {
+    position: absolute; top: -2px; right: 0;
+    padding: 7px 11px;
+  }
+  .header-nav { margin-left: 0; gap: 8px 10px; }
+  .header-nav .nav-btn { padding: 9px 12px; }
+  .header-nav .lang-select { min-width: 0; }
+}
+
+.page-title { font-size: 21px; margin: 2px 0 2px; }
+.seo-line { color: var(--ink-2); font-size: 14px; margin: 0 0 16px; }
+.header-nav { margin-left: auto; font-size: 14px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px;
+  padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- barra de controles fixa sobre o mapa ---------- */
+.stage-wrap { position: relative; margin-top: 14px; }
+.stage-topbar {
+  position: sticky; top: 8px; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 10px; flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.tb-group {
+  display: flex; align-items: center; gap: 6px;
+  /* solido, sem backdrop-filter: blur() e o carimbo mais reconhecivel de site
+     feito por IA ("glassmorphism" default). Opacidade mais alta compensa a
+     legibilidade que o blur dava de graca. */
+  background: rgba(14, 16, 20, .88); border-radius: 9px; padding: 6px;
+}
+.ov-view-label {
+  color: #fff; font-size: 12px; min-width: 96px; text-align: center;
+  font-weight: 600; letter-spacing: .3px;
+}
+.nav-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid var(--line); border-radius: 9px;
+  background: var(--chip-bg); color: var(--ink);
+  padding: 8px 14px; font-size: 14px; cursor: pointer;
+}
+.nav-btn:hover { border-color: var(--accent); text-decoration: none; }
+/* a pagina atual vira rotulo (nao link): mostra onde voce esta */
+.nav-btn.active {
+  background: var(--chip-active); border-color: var(--accent);
+  color: var(--ink); cursor: default; font-weight: 600;
+}
+.nav-icon { width: 18px; height: 18px; }
+.header-nav { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.ov-btn {
+  width: 38px; height: 38px; border-radius: 8px; border: 1px solid rgba(255,255,255,.22);
+  background: rgba(14, 16, 20, .82); color: #fff; font-size: 16px;
+  cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+}
+.ov-btn:hover:not(:disabled) { border-color: var(--accent); }
+.ov-btn:disabled { opacity: .3; cursor: default; }
+.ov-lbtn img { width: 26px; height: 26px; }
+.ov-lbtn { opacity: .38; filter: grayscale(.8); }
+.ov-lbtn.on { opacity: 1; filter: none; border-color: rgba(255,255,255,.55); }
+
+.site-header {
+  display: flex; align-items: baseline; gap: 14px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 14px; margin-bottom: 22px;
+}
+/* o logo virou <a>: sem cor propria herdaria o azul de link */
+.site-header .logo { font-size: 24px; font-weight: 800; letter-spacing: .3px; color: var(--ink); }
+.site-header .logo:hover { text-decoration: none; }
+.site-header .logo span { color: var(--accent); }
+.site-header .tagline { color: var(--ink-3); font-size: 13.5px; }
+
+.muted { color: var(--ink-3); font-size: 13px; }
+.patch-band {
+  font-size: 12.5px; color: var(--ink-3);
+  text-transform: uppercase; letter-spacing: .8px;
+  margin-bottom: 10px;
+}
+
+/* ---------- timeline de dias ---------- */
+.timeline { display: flex; gap: 10px; overflow-x: auto; padding: 6px 2px 14px; }
+.timeline {
+  scrollbar-color: var(--line) transparent;
+  padding-bottom: 14px;   /* afasta a barra dos cartoes de dia */
+  margin-bottom: 18px;    /* afasta a barra do mapa abaixo */
+}
+.timeline::-webkit-scrollbar { height: 12px; }
+.timeline::-webkit-scrollbar-track { background: transparent; }
+.timeline::-webkit-scrollbar-thumb {
+  background: var(--line); border-radius: 99px;
+  border: 3px solid var(--paper); background-clip: padding-box;
+}
+.timeline::-webkit-scrollbar-thumb:hover { background: var(--ink-3); border: 3px solid var(--paper); background-clip: padding-box; }
+.timeline .day {
+  min-width: 208px; flex: 1 0 208px; text-align: center; padding: 14px 12px 12px;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--chip-bg); color: var(--ink);
+  display: block;
+}
+.timeline a.day:hover { text-decoration: none; border-color: var(--accent); }
+.timeline .day.selected { border-color: var(--accent); background: var(--chip-active); box-shadow: inset 0 -3px 0 var(--accent); }
+.timeline .day .dow { color: var(--ink-3); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
+.timeline .day .dnum { font-weight: 700; font-size: 17px; margin: 1px 0 5px; }
+.timeline .day .bdots { display: flex; justify-content: center; gap: 4px; }
+.biconwrap { position: relative; display: inline-block; line-height: 0; }
+.bicon { width: 34px; height: 34px; object-fit: contain; }
+.timeline .day .bdots { gap: 7px; margin-top: 2px; }
+.biconwrap.mod::after {
+  content: ""; position: absolute; right: -3px; top: -3px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--variant); border: 1.5px solid var(--paper);
+}
+
+/* ---------- visao geral + regioes ---------- */
+.overview-wrap { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
+/* height:auto e obrigatorio: o <img> traz width/height reais (evita CLS) e sem
+   isso a altura do atributo fica travada e a imagem estica na vertical */
+.overview-wrap img { display: block; width: 100%; height: auto; }
+.overview-regions { position: absolute; inset: 0; display: flex; }
+.overview-regions .region { flex: 1; cursor: pointer; border-right: 1px dashed rgba(255,255,255,.25); }
+.overview-regions .region:last-child { border-right: 0; }
+.overview-regions .region:hover { background: rgba(255, 255, 255, .14); }
+.overview-regions .region.selected { background: rgba(255, 200, 60, .16); outline: 3px solid var(--accent); outline-offset: -3px; }
+
+/* ---------- titulo do bioma ---------- */
+.biome-title {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  margin: 20px 0 14px;
+}
+.biome-title h2 { margin: 0; font-size: 24px; }
+.biome-title .variant-tag {
+  background: var(--variant); color: #fff; font-size: 12.5px;
+  border-radius: 999px; padding: 3px 12px; font-weight: 600;
+}
+.biome-title .alt { color: var(--ink-3); font-size: 13px; }
+
+/* ---------- palco do mapa (zoom/pan) ---------- */
+.map-stage {
+  position: relative; overflow: hidden;
+  border-radius: var(--radius); border: 1px solid var(--line);
+  background: #0d1a24;
+  touch-action: none; cursor: grab; user-select: none;
+}
+.map-stage.dragging { cursor: grabbing; }
+.map-inner { position: relative; transform-origin: 0 0; width: 100%; }
+.map-inner img.map-img { display: block; width: 100%; height: auto; -webkit-user-drag: none; }
+
+.marker {
+  position: absolute; transform: translate(-50%, -50%) scale(var(--invz, 1));
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, .9);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .55);
+  cursor: pointer;
+  width: var(--msize, 20px); height: var(--msize, 20px);
+  background: #333 center/72% no-repeat;
+}
+.marker:hover { z-index: 30; outline: 2px solid #fff; }
+.marker.icon { border-radius: 6px; background-color: #14171c; background-size: 82%; --msize: 26px; }
+.marker.m-campfire { background-color: #ff7a2f; }
+.marker.m-statue { background-color: #35c98d; border-radius: 5px; }
+.marker.m-trick { background-color: #e04a3f; border-radius: 4px; }
+.marker.m-danger { background-color: #d8443c; border-width: 1px; opacity: .85; }
+.marker.m-structure { background-color: #2f9e99; border-radius: 4px; }
+.marker.m-beetle.icon { outline: 2px solid #e04a3f; outline-offset: 1px; }
+
+/* ---------- pagina de itens ---------- */
+.items-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px; margin-top: 18px;
+}
+.item-card {
+  display: flex; gap: 12px; padding: 12px;
+  border: 1px solid var(--line-soft); border-radius: var(--radius);
+  background: var(--chip-bg);
+}
+.item-card img { width: 56px; height: 56px; border-radius: 10px; background: #14171c; flex: none; }
+.item-card .in { font-weight: 700; }
+.item-card .ie { color: var(--ink-3); font-size: 12px; }
+.item-card .idesc { color: var(--ink-2); font-size: 12.5px; margin-top: 4px; }
+
+/* ---------- odds de loot ---------- */
+.src-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+.src-block {
+  border: 1px solid var(--line-soft); border-radius: var(--radius);
+  background: var(--chip-bg); padding: 12px 16px;
+}
+.src-block h3 { margin: 0 0 6px; font-size: 16px; }
+.src-block ul { margin: 0; padding-left: 18px; font-size: 13.5px; }
+.src-block li { margin: 3px 0; }
+.pool { margin: 18px 0; }
+.pool h3 { font-size: 17px; border-bottom: 1px solid var(--line-soft); padding-bottom: 6px; }
+.odds-table { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 6px 18px; }
+.odds-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 5px 8px; border-radius: 8px; background: var(--chip-bg);
+  font-size: 13.5px;
+}
+.odds-row img, .odds-row .noicon { width: 30px; height: 30px; border-radius: 7px; background: #14171c; flex: none; }
+.odds-row .on { flex: 1; }
+.odds-row .pct { font-weight: 700; min-width: 52px; text-align: right; font-variant-numeric: tabular-nums; }
+.rar { font-size: 10.5px; text-transform: uppercase; letter-spacing: .4px;
+       border-radius: 999px; padding: 2px 8px; color: #fff; }
+.rar-common { background: #7d8290; }
+.rar-uncommon { background: #3d9e4d; }
+.rar-rare { background: #3b7fd6; }
+.rar-epic { background: #8f4fd1; }
+.rar-legendary { background: #d97b25; }
+.rar-mythic { background: #d0403d; }
+.rar-ridiculouslyrare { background: #b8860b; }
+.tag-solo { font-size: 10px; color: var(--ink-3); border: 1px solid var(--line); border-radius: 99px; padding: 1px 7px; }
+.clickable { cursor: pointer; }
+.clickable:hover { outline: 1px solid var(--accent); }
+/* grupo das malas: moldura clara de onde comeca e termina */
+.group-box {
+  border: 1.5px solid var(--line); border-radius: var(--radius);
+  padding: 16px 18px 18px; background: var(--paper);
+}
+.group-box > h2 { margin-top: 0; }
+.tab-row { display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0 14px; }
+/* as tabs descem junto com a tela ate o grupo acabar */
+.tab-row.sticky {
+  position: sticky; top: 0; z-index: 30;
+  background: var(--paper); padding: 10px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.tab-btn { width: auto; padding: 0 12px; display: inline-flex; align-items: center; gap: 7px; }
+.tab-bicon { width: 22px; height: 22px; object-fit: contain; }
+.pool-icon { width: 28px; height: 28px; object-fit: contain; vertical-align: -6px; }
+.pool-icons { display: inline-flex; gap: 4px; vertical-align: -6px; margin-right: 4px; cursor: help; }
+.pool-icons .pool-icon { vertical-align: baseline; }
+.ctl-btn.tab-btn { background: var(--chip-bg); color: var(--ink); }
+.ctl-btn.tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* ---------- modal de perfil do item ---------- */
+.modal-backdrop {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0, 0, 0, .55);
+  display: flex; align-items: center; justify-content: center; padding: 18px;
+}
+.modal {
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 14px;
+  max-width: 460px; width: 100%; max-height: 82vh; overflow: auto;
+  padding: 20px 22px; position: relative;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, .5);
+}
+.modal-close {
+  position: absolute; top: 10px; right: 10px;
+  background: none; border: 0; color: var(--ink-3);
+  font-size: 16px; cursor: pointer; padding: 6px;
+}
+.modal-close:hover { color: var(--ink); }
+.modal-head { display: flex; gap: 14px; align-items: center; }
+.modal-head img { width: 64px; height: 64px; border-radius: 12px; background: #14171c; }
+.modal-head h3 { margin: 0; }
+.modal-desc { color: var(--ink-2); }
+.modal h4 { margin: 14px 0 6px; font-size: 13px; text-transform: uppercase; color: var(--ink-3); letter-spacing: .5px; }
+.modal ul { margin: 0; padding-left: 20px; font-size: 13.5px; }
+.modal li { margin: 3px 0; }
+
+/* ---------- controles abaixo do mapa ---------- */
+.stage-controls {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  margin: 14px 0 6px; padding: 12px 14px;
+  background: var(--chip-bg); border: 1px solid var(--line-soft); border-radius: var(--radius);
+}
+.ctl-group { display: flex; align-items: center; gap: 8px; }
+.ctl-label { font-size: 12px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .5px; }
+.ctl-btn {
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 7px;
+  min-width: 36px; height: 34px; padding: 0 10px;
+  cursor: pointer; font-size: 15px;
+}
+.ctl-btn:hover { border-color: var(--accent); }
+.ctl-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.view-pad { display: grid; grid-template-columns: repeat(3, 38px); gap: 4px; }
+
+.layerbar { display: flex; gap: 8px; flex-wrap: wrap; }
+.layer-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 14px; cursor: pointer; font-size: 13.5px; color: var(--ink-2);
+}
+.layer-btn .sw { width: 12px; height: 12px; border-radius: 50%; opacity: .35; }
+.layer-btn.on { border-color: var(--accent); color: var(--ink); background: var(--chip-active); }
+.layer-btn.on .sw { opacity: 1; }
+
+/* ---------- tooltip ---------- */
+#tooltip {
+  position: fixed; z-index: 100; pointer-events: none; display: none;
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 10px;
+  padding: 10px 12px; max-width: 300px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.35); font-size: 13.5px;
+}
+#tooltip .tt-head { display: flex; gap: 10px; align-items: center; }
+#tooltip img { width: 42px; height: 42px; border-radius: 8px; background: #14171c; }
+#tooltip .tt-name { font-weight: 700; }
+#tooltip .tt-sub { color: var(--ink-3); font-size: 12px; }
+#tooltip .tt-desc { color: var(--ink-2); margin-top: 6px; font-size: 12.5px; border-top: 1px solid var(--line-soft); padding-top: 6px; }
+
+/* ---------- seletor de idioma ---------- */
+.lang-select {
+  appearance: none; -webkit-appearance: none;
+  padding-right: 26px; max-width: 168px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink-3) 50%),
+                    linear-gradient(135deg, var(--ink-3) 50%, transparent 50%);
+  background-position: calc(100% - 14px) 52%, calc(100% - 9px) 52%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+/* ---------- páginas de conteúdo (guias, item, badges) ---------- */
+.topic-page, .item-page { max-width: 760px; }
+.topic-page h1, .item-page h1 { font-size: 27px; margin-bottom: 10px; }
+.topic-page h2, .item-page h2 {
+  font-size: 18px; margin-top: 26px;
+  border-bottom: 1px solid var(--line-soft); padding-bottom: 5px;
+}
+.topic-page .lead, .item-page .lead { color: var(--ink-2); font-size: 15px; }
+.topic-biome { margin: 14px 0; }
+.topic-biome h3 { font-size: 15px; margin-bottom: 4px; display: flex; align-items: baseline; gap: 8px; }
+.topic-biome ul, .day-list, .odds-list { margin: 4px 0 0; padding-left: 20px; font-size: 13.5px; }
+.topic-biome li, .day-list li, .odds-list li { margin: 2px 0; }
+.small-link { font-size: 12px; font-weight: 400; }
+.crumbs { font-size: 12.5px; color: var(--ink-3); margin: -8px 0 14px; }
+.crumbs a { color: var(--ink-3); }
+.crumbs a:hover { color: var(--link); }
+.crumbs .sep { opacity: .6; }
+/* preview do mapa nas paginas de guia: desfocado com um botao por cima, para
+   ficar claro que existe um mapa grande do outro lado do clique */
+.topic-preview {
+  position: relative; display: block; margin: 10px 0 16px;
+  border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+}
+.topic-preview img {
+  display: block; width: 100%; height: auto;
+  filter: blur(3px) saturate(.85); transform: scale(1.03);
+  transition: filter .18s ease;
+}
+.topic-preview:hover img { filter: blur(1.5px) saturate(1); }
+.topic-preview .tp-overlay {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(180deg, rgba(10,14,20,.28), rgba(10,14,20,.5));
+}
+.topic-preview .tp-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent); color: #fff; font-weight: 650; font-size: 14px;
+  padding: 9px 18px; border-radius: 999px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, .45);
+}
+.topic-preview:hover { border-color: var(--accent); text-decoration: none; }
+.topic-preview:hover .tp-cta { filter: brightness(1.08); }
+.count-chip {
+  display: inline-block; min-width: 20px; text-align: center;
+  background: var(--chip-active); border: 1px solid var(--line);
+  color: var(--ink-2); border-radius: 999px;
+  font-size: 11.5px; font-weight: 700; padding: 0 7px; vertical-align: 1px;
+}
+.item-head { display: flex; gap: 16px; align-items: center; margin-bottom: 6px; }
+.item-head img { border-radius: 14px; background: #14171c; flex: none; }
+.item-head h1 { margin: 0; }
+.badge-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 10px; margin-top: 16px;
+}
+.badge-row {
+  display: flex; gap: 12px; align-items: flex-start;
+  border: 1px solid var(--line-soft); border-radius: var(--radius);
+  background: var(--chip-bg); padding: 10px 14px;
+}
+.badge-ic { width: 48px; height: 48px; flex: none; object-fit: contain; }
+.badge-row .bn { font-weight: 700; font-size: 14px; }
+.badge-row .bd { color: var(--ink-2); font-size: 13px; }
+.badge-row .blinks { margin-top: 4px; display: flex; gap: 10px; flex-wrap: wrap; }
+.item-card { color: inherit; }
+.item-card:hover { text-decoration: none; border-color: var(--accent); }
+.odds-row .on { color: inherit; }
+.odds-row .on:hover { color: var(--link); }
+.modal-link { font-size: 13px; }
+.marker.m-fauna { background-color: #7a9c3f; border-radius: 50%; }
+.foot-topics { margin-bottom: 10px; line-height: 1.9; }
+.foot-topics a { color: var(--ink-2); }
+
+footer {
+  margin-top: 36px; color: var(--ink-3); font-size: 12.5px;
+  border-top: 1px solid var(--line); padding-top: 16px;
+}
